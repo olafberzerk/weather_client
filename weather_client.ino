@@ -1,14 +1,9 @@
 #include <SPI.h>
 #include "RF24.h"
-//#include "RF24_config.h"
-//#include "nRF24L01.h"
 
-//#include <printf.h>
-//#include <LiquidCrystal_I2C.h>
-
-#include <arduino.h>
 #include <dht.h>
 #include <Wire.h>
+#include "convert.h"
 
 #define DHT22_PIN 2 // pin that the sensor is on for uno.  Digital pin 4 on atmega
 
@@ -19,13 +14,6 @@ byte addresses[][6] = {"1Node","2Node"};
 
 void setup()
 {
-  //Serial.begin(115200);
-  //Serial.println("DHT TEST PROGRAM ");
-  //Serial.print("LIBRARY VERSION: ");
-  //Serial.println(DHT_LIB_VERSION);
-  //Serial.println();
-  //Serial.println("Type,\tStatus,\tHumidity (%),\tTemperature (C),\tTemperature (F),\tTemperature (K),\tDewpoint (F)");
-
 
 	nrf.begin();
 	// Set the PA Level low to prevent power supply related issues since this is a
@@ -40,74 +28,41 @@ void setup()
 
 }
 
-// delta max = 0.6544 wrt dewPoint()
-// 6.9 x faster than dewPoint()
-// reference: http://en.wikipedia.org/wiki/Dew_point
-double dewPointFast(double celsius, double humidity)
-{
-  delay(2000);
-  double a = 17.271;
-  double b = 237.7;
-  double temp = (a * celsius) / (b + celsius) + log(humidity*0.01);
-  double Td = (b * temp) / (a - temp);
-  return Td;
-}
-
-//Celsius to Kelvin conversion
-double Kelvin(double celsius)
-{
-  return celsius + 273.15;
-}
-
-double Fahrenheit(double celsius)
-{
-  return 1.8 * celsius + 32;
-}
-
 void loop()
 {
   // READ DATA
 
-  Serial.print("DHT22, \t");
-  int chk = DHT.read22(DHT22_PIN);
-  switch (chk)
+  int status = DHT.read22(DHT22_PIN);
+  switch (status)
   {
     case DHTLIB_OK:
-    Serial.print("OK,\t");
+    	{
+    		nrf.stopListening();
+        	if (!nrf.write( &DHT.humidity, sizeof(double) )){
+        	         Serial.println(F("failed to send humidity"));
+        	       }
+        	if (!nrf.write( &DHT.temperature, sizeof(double) )){
+        	           Serial.println(F("failed to send temp"));
+        	         }
+    	}
     break;
     case DHTLIB_ERROR_CHECKSUM:
-    Serial.print("Checksum error,\t");
+    {
+
+    }
     break;
     case DHTLIB_ERROR_TIMEOUT:
-    Serial.print("Time out error,\t");
+    {
+
+    }
     break;
     default:
-    Serial.print("Unknown error,\t");
+    {
+
+    }
     break;
   }
 
-  nrf.stopListening();
-
-  if (!nrf.write( &DHT.humidity, sizeof(double) )){
-         Serial.println(F("failed"));
-       }
-
-  if (!nrf.write( &DHT.temperature, sizeof(double) )){
-           Serial.println(F("failed"));
-         }
-
   nrf.startListening();
-
-  // DISPLAY DATA
-  //Serial.print(DHT.humidity, 2);
-  //Serial.print(",\t");
-  //Serial.print(DHT.temperature, 2);
-  //Serial.print(",\t");
-  //Serial.print(Fahrenheit(DHT.temperature), 2);
-  //Serial.print(",\t");
-  //Serial.print(Kelvin(DHT.temperature), 2);
-  //Serial.print(",\t");
-  //Serial.println(Fahrenheit(dewPointFast(DHT.temperature, DHT.humidity)), 2);
-
-
+  delay(2000);
 }
