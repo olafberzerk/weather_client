@@ -32,11 +32,6 @@
 			<locationURI>ArduinoPrivateLibPath/DHTlib</locationURI>
 		</link>
 		<link>
-			<name>Libraries/NewliquidCrystal</name>
-			<type>2</type>
-			<locationURI>ArduinoLibPath/NewliquidCrystal</locationURI>
-		</link>
-		<link>
 			<name>Libraries/RF24-master</name>
 			<type>2</type>
 			<locationURI>ArduinoPrivateLibPath/RF24-master</locationURI>

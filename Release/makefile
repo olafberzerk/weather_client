@@ -10,6 +10,11 @@ RM := rm -f
 -include sources.mk
 -include subdir.mk
 -include arduino/core/subdir.mk
+-include Libraries/Wire/utility/subdir.mk
+-include Libraries/Wire/subdir.mk
+-include Libraries/SPI/subdir.mk
+-include Libraries/RF24-master/subdir.mk
+-include Libraries/DHTlib/subdir.mk
 -include objects.mk
 
 ifneq ($(MAKECMDGOALS),clean)

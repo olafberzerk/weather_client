@@ -1,7 +1,7 @@
 #include <SPI.h>
-#include <RF24.h>
-#include <RF24_config.h>
-#include <nRF24L01.h>
+#include "RF24.h"
+//#include "RF24_config.h"
+//#include "nRF24L01.h"
 
 //#include <printf.h>
 //#include <LiquidCrystal_I2C.h>
@@ -15,6 +15,8 @@
 dht DHT;
 RF24 nrf(7,8);
 
+byte addresses[][6] = {"1Node","2Node"};
+
 void setup()
 {
   //Serial.begin(115200);
@@ -24,6 +26,7 @@ void setup()
   //Serial.println();
   //Serial.println("Type,\tStatus,\tHumidity (%),\tTemperature (C),\tTemperature (F),\tTemperature (K),\tDewpoint (F)");
 
+
 	nrf.begin();
 	// Set the PA Level low to prevent power supply related issues since this is a
 	// getting_started sketch, and the likelihood of close proximity of the devices. RF24_PA_MAX is default.
@@ -31,6 +34,8 @@ void setup()
 
 	nrf.openWritingPipe(addresses[1]);
 	nrf.openReadingPipe(1,addresses[0]);
+
+	nrf.startListening();
 
 
 }
@@ -80,22 +85,29 @@ void loop()
     Serial.print("Unknown error,\t");
     break;
   }
+
+  nrf.stopListening();
+
+  if (!nrf.write( &DHT.humidity, sizeof(double) )){
+         Serial.println(F("failed"));
+       }
+
+  if (!nrf.write( &DHT.temperature, sizeof(double) )){
+           Serial.println(F("failed"));
+         }
+
+  nrf.startListening();
+
   // DISPLAY DATA
-  Serial.print(DHT.humidity, 2);
-  Serial.print(",\t");
-  Serial.print(DHT.temperature, 2);
-  Serial.print(",\t");
-  Serial.print(Fahrenheit(DHT.temperature), 2);
-  Serial.print(",\t");
-  Serial.print(Kelvin(DHT.temperature), 2);
-  Serial.print(",\t");
-  Serial.println(Fahrenheit(dewPointFast(DHT.temperature, DHT.humidity)), 2);
+  //Serial.print(DHT.humidity, 2);
+  //Serial.print(",\t");
+  //Serial.print(DHT.temperature, 2);
+  //Serial.print(",\t");
+  //Serial.print(Fahrenheit(DHT.temperature), 2);
+  //Serial.print(",\t");
+  //Serial.print(Kelvin(DHT.temperature), 2);
+  //Serial.print(",\t");
+  //Serial.println(Fahrenheit(dewPointFast(DHT.temperature, DHT.humidity)), 2);
 
-  digitalWrite(13, HIGH);   // turn the LED on (HIGH is the voltage level)
-  delay(1000);              // wait for a second
-  digitalWrite(13, LOW);    // turn the LED off by making the voltage LOW
-  delay(1000);
-
-            // wait for a second
 
 }
