@@ -7,10 +7,8 @@
 
 #include <SPI.h> //radio
 #include <RF24.h> //radio
-#include <nRF24L01.h>
 
 #include <dht.h> //sensor
-//#include <Wire.h>
 
 #define DHT22_PIN 2 // pin that the sensor is on for uno.  Digital pin 4 on atmega
 
