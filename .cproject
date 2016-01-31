@@ -22,10 +22,7 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/weather_client/arduino/core}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/weather_client/arduino/variant}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/weather_client/Libraries/DHTlib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/weather_client/Libraries/NewliquidCrystal}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/weather_client/Libraries/NewliquidCrystal/utility}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/weather_client/Libraries/RF24-master}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/weather_client/Libraries/RF24-master/utility}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/weather_client/Libraries/SPI}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/weather_client/Libraries/Wire}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/weather_client/Libraries/Wire/utility}&quot;"/>
@@ -37,10 +34,7 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/weather_client/arduino/core}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/weather_client/arduino/variant}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/weather_client/Libraries/DHTlib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/weather_client/Libraries/NewliquidCrystal}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/weather_client/Libraries/NewliquidCrystal/utility}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/weather_client/Libraries/RF24-master}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/weather_client/Libraries/RF24-master/utility}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/weather_client/Libraries/SPI}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/weather_client/Libraries/Wire}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/weather_client/Libraries/Wire/utility}&quot;"/>
