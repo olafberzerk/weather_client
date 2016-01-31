@@ -13,6 +13,7 @@
  E:\Arduino\hardware\arduino\avr\libraries\SPI/SPI.h \
  C:\Users\Brady\Documents\Arduino\libraries\RF24-master/RF24.h \
  C:\Users\Brady\Documents\Arduino\libraries\RF24-master/RF24_config.h \
+ C:\Users\Brady\Documents\Arduino\libraries\RF24-master/nRF24L01.h \
  C:\Users\Brady\Documents\Arduino\libraries\DHTlib/dht.h \
  ../weather_client.ino
 
@@ -43,6 +44,8 @@ E:\Arduino\hardware\arduino\avr\libraries\SPI/SPI.h:
 C:\Users\Brady\Documents\Arduino\libraries\RF24-master/RF24.h:
 
 C:\Users\Brady\Documents\Arduino\libraries\RF24-master/RF24_config.h:
+
+C:\Users\Brady\Documents\Arduino\libraries\RF24-master/nRF24L01.h:
 
 C:\Users\Brady\Documents\Arduino\libraries\DHTlib/dht.h:
 

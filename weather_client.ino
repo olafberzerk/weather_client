@@ -7,6 +7,7 @@
 
 #include <SPI.h> //radio
 #include <RF24.h> //radio
+#include <nRF24L01.h>
 
 #include <dht.h> //sensor
 //#include <Wire.h>
