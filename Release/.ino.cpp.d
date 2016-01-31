@@ -14,8 +14,6 @@
  C:\Users\Brady\Documents\Arduino\libraries\RF24-master/RF24.h \
  C:\Users\Brady\Documents\Arduino\libraries\RF24-master/RF24_config.h \
  C:\Users\Brady\Documents\Arduino\libraries\DHTlib/dht.h \
- E:\Arduino\hardware\arduino\avr\libraries\Wire/Wire.h \
- E:\Arduino\hardware\arduino\avr\cores\arduino/Stream.h ../convert.h \
  ../weather_client.ino
 
 E:\Arduino\hardware\arduino\avr\cores\arduino/Arduino.h:
@@ -47,11 +45,5 @@ C:\Users\Brady\Documents\Arduino\libraries\RF24-master/RF24.h:
 C:\Users\Brady\Documents\Arduino\libraries\RF24-master/RF24_config.h:
 
 C:\Users\Brady\Documents\Arduino\libraries\DHTlib/dht.h:
-
-E:\Arduino\hardware\arduino\avr\libraries\Wire/Wire.h:
-
-E:\Arduino\hardware\arduino\avr\cores\arduino/Stream.h:
-
-../convert.h:
 
 ../weather_client.ino:

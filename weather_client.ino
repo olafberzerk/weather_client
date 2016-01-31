@@ -5,12 +5,11 @@
  * Wire
 */
 
-#include <SPI.h>
-#include <RF24.h>
+#include <SPI.h> //radio
+#include <RF24.h> //radio
 
-#include <dht.h>
-#include <Wire.h>
-#include "convert.h"
+#include <dht.h> //sensor
+//#include <Wire.h>
 
 #define DHT22_PIN 2 // pin that the sensor is on for uno.  Digital pin 4 on atmega
 
@@ -39,7 +38,7 @@ void setup()
 	//radio.openReadingPipe(1,addresses[1]);
 	// just going to write to the server
 
-	radio.startListening();
+	//radio.startListening();
 }
 
 void loop()
