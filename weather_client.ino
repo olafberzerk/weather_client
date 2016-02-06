@@ -70,10 +70,26 @@ void loop()
 
     	Serial.println("Stopping listening\n\n");
     	radio.stopListening();
-        	if (!radio.write(&DHT.humidity, sizeof(double) )){
+    	Serial.println("Converting temp to string\n\n");
+    	String temperature(DHT.temperature,2);
+    	Serial.println("Converting hum to string\n\n");
+    	String humidity(DHT.humidity,2);
+    	Serial.println(humidity);
+    	Serial.println(temperature);
+
+/***********************************
+//update here
+    	temperature.getBytes((&buf, sizeof(buf));
+//update here
+    	temperature.getBytes((&buf, sizeof(buf));
+
+************************************/
+
+
+        	if (!radio.write(&temperature, sizeof(temperature) )){
         	         Serial.println(F("failed to send humidity"));
         	       }
-        	if (!radio.write(&DHT.temperature, sizeof(double) )){
+        	if (!radio.write(&humidity, sizeof(humidity) )){
         	           Serial.println(F("failed to send temperature"));
         	         }
     }
